@@ -7,19 +7,31 @@ import exceptions.ValorVazioException;
 import model.Categoria;
 import repositories.CategoriaRepository;
 
-public class CategoriaView {
+public class CategoriaView implements View {
 
-	public static void exibirLista(CategoriaRepository categoriaRepository) {
-		System.out.println("Listando categorias de transação\n");
+	private CategoriaRepository categoriaRepository;
+	private Scanner scan;
+
+	public CategoriaView(CategoriaRepository categoriaRepository, Scanner scan) {
+		this.categoriaRepository = categoriaRepository;
+		this.scan = scan;
+	}
+
+	@Override
+	public void exibirLista() {
+		System.out.println("\nListando categorias de transação\n");
 
 		categoriaRepository.getAll().stream().forEach(c -> {
 			System.out.println("#Cód: " + c.getId() + " - " + c.getNome());
 		});
+
 	}
 
-	public static void cadastrarCategoriaNova(Scanner scan, CategoriaRepository categoriaRepository) {
-		System.out.println("Cadastrar categoria de transação\n");
+	@Override
+	public void cadastrar() {
+		System.out.println("\nCadastrar categoria de transação\n");
 
+		scan.nextLine();
 		System.out.println("Digite um nome para a categoria: ");
 		String nome = scan.nextLine();
 

@@ -17,8 +17,10 @@ public class TransacoesRepository implements Repository<Transacao> {
 		objeto.setId(sequencia);
 		transacoes.add(objeto);
 
-		// Se o tipo de transação for de gasto mas o valor passado for positivo: transforma em negativo
-		// Se o tipo de transação for de receita mas o valor passado por negativo: transforma em positivo
+		// Se o tipo de transação for de gasto mas o valor passado for positivo:
+		// transforma em negativo
+		// Se o tipo de transação for de receita mas o valor passado por negativo:
+		// transforma em positivo
 		if (objeto.getTipoTransacao() == TipoTransacao.GASTO && objeto.getValor() > 0
 				|| objeto.getTipoTransacao() == TipoTransacao.RECEITA && objeto.getValor() < 0) {
 			objeto.setValor(-objeto.getValor());
@@ -28,20 +30,14 @@ public class TransacoesRepository implements Repository<Transacao> {
 	}
 
 	@Override
-	public void remove(Transacao objeto) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public List<Transacao> getAll() {
 		return transacoes;
 	}
 
 	@Override
 	public Optional<Transacao> findOne(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Optional<Transacao> transacao = transacoes.stream().filter(t -> t.getId() == id).findFirst();
+		return transacao;
 	}
 
 }

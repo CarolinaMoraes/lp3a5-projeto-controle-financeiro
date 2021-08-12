@@ -13,13 +13,6 @@ public class CategoriaRepository implements Repository<Categoria> {
 
 	private static List<Categoria> categorias = new ArrayList<Categoria>();
 
-	public CategoriaRepository() throws ValorDuplicadoException {
-		add(new Categoria(sequencia, "Moradia"));
-		add(new Categoria(sequencia, "Transporte"));
-		add(new Categoria(sequencia, "Lazer"));
-		add(new Categoria(sequencia, "Alimentação"));
-	}
-
 	@Override
 	public void add(Categoria objeto) throws ValorDuplicadoException {
 		boolean isCategoriaUnica = categorias.stream().noneMatch(cat -> cat.getNome().equals(objeto.getNome()));
@@ -35,11 +28,6 @@ public class CategoriaRepository implements Repository<Categoria> {
 			throw new ValorDuplicadoException("A categoria '" + objeto.getNome() + "' já foi cadastrada");
 		}
 
-	}
-
-	@Override
-	public void remove(Categoria objeto) {
-		categorias.removeIf(categoria -> categoria.getId() == objeto.getId());
 	}
 
 	@Override

@@ -6,10 +6,15 @@ public class Categoria {
 
 	private String nome;
 
-	public Categoria() {}
-	
+	public Categoria() {
+	}
+
 	public Categoria(long id, String nome) {
 		this.id = id;
+		this.nome = nome;
+	}
+
+	public Categoria(String nome) {
 		this.nome = nome;
 	}
 
