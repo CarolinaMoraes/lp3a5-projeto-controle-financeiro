@@ -11,11 +11,12 @@ public class FileUtils {
 
 	private final static String BASE_DESKTOP_PATH = System.getProperty("user.home") + File.separator + "Desktop";
 
-	public static void salvar(String conteudo) {
-		Path filePath = Paths.get(BASE_DESKTOP_PATH+"/transacoes.csv");
+	public static void salvar(String conteudo, String nomeArquivo) {
+		Path filePath = Paths.get(BASE_DESKTOP_PATH+"/"+nomeArquivo);
 		
 		 try {
 			Files.write(filePath, conteudo.getBytes(), StandardOpenOption.CREATE);
+			System.out.println("Salvo no desktop, em " + nomeArquivo);
 		} catch (IOException e) {
 			System.out.println("Não foi possível salvar seu arquivo");
 		}

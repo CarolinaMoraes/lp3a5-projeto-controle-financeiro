@@ -18,8 +18,7 @@ public class CsvUtils {
 				csvFinal.append(addObjetoParaLinha(obj)).append("\n");
 			}
 
-			FileUtils.salvar(csvFinal.toString());
-			System.out.println("Salvo!");
+			FileUtils.salvar(csvFinal.toString(), "transacoes.csv");
 		}
 	}
 

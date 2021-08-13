@@ -17,6 +17,7 @@ public class ThreadPreencherCategorias implements Runnable {
 		categoriaRepository.add(new Categoria("Transporte"));
 		categoriaRepository.add(new Categoria("Lazer"));
 		categoriaRepository.add(new Categoria("Alimentação"));
+		categoriaRepository.add(new Categoria("Salário"));
 	}
 
 }

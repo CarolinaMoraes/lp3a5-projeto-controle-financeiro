@@ -137,7 +137,7 @@ public class TransacaoView implements EntidadeView {
 
 	private String escolherDescricao() {
 		scan.nextLine();
-		System.out.println("\nSe quiser, descreva sucintamente o seu gasto");
+		System.out.println("\nDescreva sucintamente o seu gasto (opcional, dê enter para pular)");
 		Optional<String> descricao = Optional.ofNullable(scan.nextLine());
 
 		if (descricao.isPresent() && !descricao.get().isBlank()) {
