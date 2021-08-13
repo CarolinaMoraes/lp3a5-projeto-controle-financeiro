@@ -1,6 +1,6 @@
 package views;
 
-public interface View {
+public interface EntidadeView {
 	
 	void exibirLista();
 	

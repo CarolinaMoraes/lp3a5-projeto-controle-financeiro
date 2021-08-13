@@ -7,7 +7,7 @@ import exceptions.ValorVazioException;
 import model.Categoria;
 import repositories.CategoriaRepository;
 
-public class CategoriaView implements View {
+public class CategoriaView implements EntidadeView {
 
 	private CategoriaRepository categoriaRepository;
 	private Scanner scan;
@@ -36,7 +36,6 @@ public class CategoriaView implements View {
 		String nome = scan.nextLine();
 
 		try {
-
 			if (nome.isBlank()) {
 				throw new ValorVazioException("O nome da categoria está vazio");
 			}
@@ -46,6 +45,8 @@ public class CategoriaView implements View {
 
 			categoriaRepository.add(categoria);
 			System.out.println("Categoria cadastrada!");
+			
+			System.out.println("Pressione qualquer tecla para continuar...");
 		} catch (ValorDuplicadoException | ValorVazioException e) {
 			System.out.println(e.getMessage());
 			System.out.println("Não foi possível realizar o registro da categoria");

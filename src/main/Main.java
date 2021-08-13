@@ -2,11 +2,12 @@ package main;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
 import exceptions.ValorDuplicadoException;
 import repositories.CategoriaRepository;
 import repositories.TransacoesRepository;
 import threads.ThreadPreencherCategorias;
+import utils.CsvUtils;
+import utils.FileUtils;
 import views.CategoriaView;
 import views.TransacaoView;
 
@@ -38,6 +39,7 @@ public class Main {
 			System.out.println("2 - Registrar transação");
 			System.out.println("3 - Listar categorias de transação");
 			System.out.println("4 - Cadastrar categoria de transação");
+			System.out.println("5 - Salvar transações em CSV (Windows)");
 			System.out.println("0 - Sair");
 
 			try {
@@ -64,6 +66,10 @@ public class Main {
 				categoriaView.cadastrar();
 				break;
 
+			case 5:
+				CsvUtils.converterEmCSV(transacoesRepository.getAll());
+				break;
+
 			default:
 				break;
 			}
@@ -73,4 +79,5 @@ public class Main {
 
 		scan.close();
 	}
+
 }

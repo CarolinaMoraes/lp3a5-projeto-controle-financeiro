@@ -15,7 +15,7 @@ import model.enums.TipoTransacao;
 import repositories.CategoriaRepository;
 import repositories.TransacoesRepository;
 
-public class TransacaoView implements View {
+public class TransacaoView implements EntidadeView {
 
 	private TransacoesRepository transacoesRepository;
 	private CategoriaRepository categoriaRepository;
@@ -64,6 +64,7 @@ public class TransacaoView implements View {
 
 			transacoesRepository.add(transacao);
 			System.out.println("Registrado!");
+			System.out.println("Pressione qualquer tecla para continuar...");
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 			System.out.println("Não foi possível seguir com seu cadastro");
